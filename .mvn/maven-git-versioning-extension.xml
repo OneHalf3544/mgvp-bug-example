@@ -1,0 +1,28 @@
+<configuration>
+  <branches>
+    <branch>
+      <pattern>master</pattern>
+      <versionFormat>${version.release}</versionFormat>
+    </branch>
+    <branch>
+      <!-- ignore version from branch name. I.e. 'feature/1.2.3/blah-blah' become '${real-pom-version}-blah-blah-SNAPSHOT' -->
+      <pattern><![CDATA[(feature|bugfix|hotfix)/((\d+\.)+\d+/)?(?<description>.*)]]></pattern>
+      <versionFormat>${version.release}-${description}-SNAPSHOT</versionFormat>
+    </branch>
+    <branch>
+      <pattern>develop/.*</pattern>
+      <versionFormat>${version.release}-SNAPSHOT</versionFormat>
+    </branch>
+  </branches>
+  <tags>
+    <tag>
+      <!-- use tag as version -->
+      <pattern>(\d+\.)+\d+</pattern>
+      <versionFormat>${tag}</versionFormat>
+    </tag>
+  </tags>
+  <commit>
+    <!-- as default maven behaviour -->
+    <versionFormat>${version}</versionFormat>
+  </commit>
+</configuration>
