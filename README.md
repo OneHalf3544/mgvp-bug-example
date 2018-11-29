@@ -29,5 +29,5 @@ and
 ]
 ```
 
-It can be workarounded if we will use ${parent.version} or set version with dependencyManagement.
+It can be workarounded if we use ${parent.version} or set version with dependencyManagement.
 But I want to find a correct way to use the common version across the multimodule project.
